@@ -1,3 +1,7 @@
+RXCustomTabBar Fork
+===============
+The [original project](https://github.com/rumex/RXCustomTabBar "original project") is a great example, but the code is locked to just one use. With a little tinkering we can get a drop-in replacement for the UITabBarController, hopefully.
+
 RXCustomTabBar
 ===============
 RXCustomTab bar is an example project demonstrating how to implement a custom Tab Bar on iOS devices.  
