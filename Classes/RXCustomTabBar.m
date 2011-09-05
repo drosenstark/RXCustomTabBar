@@ -12,16 +12,13 @@
 
 @synthesize buttons;
 
-
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-	
+-(void)viewDidLoad {
 	[self hideTabBar];
     if (!self.buttons)
         self.buttons = [NSMutableArray array];
-	[self addCustomElements];
+
 }
+
 
 - (void)hideTabBar
 {
@@ -49,9 +46,19 @@
     }
 }
 
+- (int) buttonHeight {
+    return 50;
+}
 
 -(int) buttonWidth {
     return 80;
+}
+
+- (void) layoutButtons {
+    for (int i=0; i<[self.buttons count]; i++) {
+        UIButton *button = [self.buttons objectAtIndex:i];
+        button.frame = CGRectMake(i*[self buttonWidth], self.view.frame.size.height - [self buttonHeight], [self buttonWidth], [self buttonHeight]); 
+    }
 }
 
 -(void) addCustomElement:(NSString*)normalImage selectedImage:(NSString*)selectedImage which:(int)which {
@@ -59,7 +66,6 @@
 	UIImage *btnImageSelected = [UIImage imageNamed:selectedImage];
     
     UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
-	btn1.frame = CGRectMake(which*[self buttonWidth], 430, 80, 50); 
 	[btn1 setBackgroundImage:btnImage forState:UIControlStateNormal]; 
     [btn1 setBackgroundImage:btnImageSelected forState:UIControlStateSelected]; 
 	[btn1 setTag:which]; 
@@ -70,14 +76,6 @@
 	[btn1 addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
 
--(void)addCustomElements
-{
-    int i = 0;
-    [self addCustomElement:@"NavBar_01.png" selectedImage:@"NavBar_01_s.png" which:i++];
-    [self addCustomElement:@"NavBar_02.png" selectedImage:@"NavBar_02_s.png" which:i++];
-    [self addCustomElement:@"NavBar_03.png" selectedImage:@"NavBar_03_s.png" which:i++];
-    [self addCustomElement:@"NavBar_04.png" selectedImage:@"NavBar_04_s.png" which:i++];
-}
 
 - (void)buttonClicked:(id)sender
 {

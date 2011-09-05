@@ -14,10 +14,11 @@
 @property (nonatomic, retain) NSMutableArray *buttons;
 
 -(void) hideTabBar;
--(void) addCustomElements;
 -(void) selectTab:(int)tabID;
 
 -(void) hideNewTabBar;
 -(void) showNewTabBar;
+-(void) addCustomElement:(NSString*)normalImage selectedImage:(NSString*)selectedImage which:(int)which;
+- (void) layoutButtons;
 
 @end
