@@ -7,6 +7,8 @@
 //
 
 #import "FirstViewController.h"
+#import "RXCustomTabBar.h"
+
 
 
 @implementation FirstViewController
@@ -45,11 +47,11 @@
 */
 
 - (IBAction)btnPressHide:(id)sender {
-    [self.tabBarController hideNewTabBar];
+    [ ((RXCustomTabBar*)self.tabBarController) hideNewTabBar];
 }
 
 - (IBAction)btnPressShow:(id)sender {
-    [self.tabBarController showNewTabBar];
+    [ ((RXCustomTabBar*)self.tabBarController) showNewTabBar];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,10 +66,6 @@
 	// e.g. self.myOutlet = nil;
 }
 
-
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end
