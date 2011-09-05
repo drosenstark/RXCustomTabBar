@@ -18,6 +18,8 @@
     [super viewWillAppear:animated];
 	
 	[self hideTabBar];
+    if (!self.buttons)
+        self.buttons = [NSMutableArray array];
 	[self addCustomElements];
 }
 
@@ -47,11 +49,6 @@
     }
 }
 
--(NSMutableArray *)buttons {
-    if (buttons == nil) 
-        buttons = [NSMutableArray array];
-    return buttons;
-}
 
 -(int) buttonWidth {
     return 80;
@@ -61,32 +58,30 @@
 	UIImage *btnImage = [UIImage imageNamed:normalImage];
 	UIImage *btnImageSelected = [UIImage imageNamed:selectedImage];
     
-    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom]; //Setup the button
-	btn1.frame = CGRectMake(which*[self buttonWidth], 430, 80, 50); // Set the frame (size and position) of the button)
-	[btn1 setBackgroundImage:btnImage forState:UIControlStateNormal]; // Set the image for the normal state of the button
-	[btn1 setBackgroundImage:btnImageSelected forState:UIControlStateSelected]; // Set the image for the selected state of the button
-	[btn1 setTag:which]; // Assign the button a "tag" so when our "click" event is called we know which button was pressed.
-	[btn1 setSelected:true]; // Set this button as selected (we will select the others to false as we only want Tab 1 to be selected initially
+    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
+	btn1.frame = CGRectMake(which*[self buttonWidth], 430, 80, 50); 
+	[btn1 setBackgroundImage:btnImage forState:UIControlStateNormal]; 
+    [btn1 setBackgroundImage:btnImageSelected forState:UIControlStateSelected]; 
+	[btn1 setTag:which]; 
+	[btn1 setSelected:true]; 
+    NSLog(@"made it %d", which);
     [self.buttons addObject:btn1];
     [self.view addSubview:btn1];
-	// Setup event handlers so that the buttonClicked method will respond to the touch up inside event.
 	[btn1 addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void)addCustomElements
 {
-    [self addCustomElement:@"NavBar_01.png" selectedImage:@"NavBar_01_s.png" which:0];
-    [self addCustomElement:@"NavBar_02.png" selectedImage:@"NavBar_02_s.png" which:1];
-    [self addCustomElement:@"NavBar_03.png" selectedImage:@"NavBar_03_s.png" which:2];
-    [self addCustomElement:@"NavBar_04.png" selectedImage:@"NavBar_04_s.png" which:3];
-    NSLog(@"yes %d", [self.buttons count]);
-	
+    int i = 0;
+    [self addCustomElement:@"NavBar_01.png" selectedImage:@"NavBar_01_s.png" which:i++];
+    [self addCustomElement:@"NavBar_02.png" selectedImage:@"NavBar_02_s.png" which:i++];
+    [self addCustomElement:@"NavBar_03.png" selectedImage:@"NavBar_03_s.png" which:i++];
+    [self addCustomElement:@"NavBar_04.png" selectedImage:@"NavBar_04_s.png" which:i++];
 }
 
 - (void)buttonClicked:(id)sender
 {
 	int tagNum = [sender tag];
-    NSLog(@"what's up %@", self.buttons);
 	[self selectTab:tagNum];
 }
 
@@ -95,11 +90,14 @@
     for (int i=0; i<[self.buttons count]; i++) {
         UIButton *button = [self.buttons objectAtIndex:i];
         button.selected = (tabID == i);
-        NSLog(@"see we're %d and we're selected? %d", i, button.selected);
     }
 	self.selectedIndex = tabID;
 	
 	
+}
+
+-(void)dealloc {
+    self.buttons = nil;
 }
 
 @end

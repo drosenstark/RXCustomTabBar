@@ -11,7 +11,7 @@
 @interface RXCustomTabBar : UITabBarController {
 }
 
-@property (nonatomic, strong) NSMutableArray *buttons;
+@property (nonatomic, retain) NSMutableArray *buttons;
 
 -(void) hideTabBar;
 -(void) addCustomElements;
