@@ -14,6 +14,7 @@
 @property (nonatomic, retain) NSMutableArray *buttons;
 @property (nonatomic, assign) int buttonWidth;
 @property (nonatomic, assign) int buttonHeight;
+@property (nonatomic, assign) BOOL useRealButtonWidth;
 
 
 -(void) hideTabBar;
@@ -21,7 +22,8 @@
 
 -(void) hideNewTabBar;
 -(void) showNewTabBar;
--(void) addCustomElement:(NSString*)normalImage selectedImage:(NSString*)selectedImage;
+-(void) addButton:(UIButton*)button asTab:(int)tabId;
+-(void) addButtonWithImage:(NSString*)normalImage selectedImage:(NSString*)selectedImage;
 - (void) layoutButtons;
 
 @end

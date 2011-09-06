@@ -30,10 +30,10 @@
     [self makeViewController:[UIColor redColor]];
     [self makeViewController:[UIColor purpleColor]];
 
-    [self addCustomElement:@"NavBar_01.png" selectedImage:@"NavBar_01_s.png"];
-    [self addCustomElement:@"NavBar_02.png" selectedImage:@"NavBar_02_s.png"];
-    [self addCustomElement:@"NavBar_03.png" selectedImage:@"NavBar_03_s.png"];
-    [self addCustomElement:@"NavBar_04.png" selectedImage:@"NavBar_04_s.png"];
+    [self addButtonWithImage:@"NavBar_01.png" selectedImage:@"NavBar_01_s.png"];
+    [self addButtonWithImage:@"NavBar_02.png" selectedImage:@"NavBar_02_s.png"];
+    [self addButtonWithImage:@"NavBar_03.png" selectedImage:@"NavBar_03_s.png"];
+    [self addButtonWithImage:@"NavBar_04.png" selectedImage:@"NavBar_04_s.png"];
 
 
 }
