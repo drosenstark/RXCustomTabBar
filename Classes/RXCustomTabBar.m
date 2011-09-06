@@ -15,6 +15,9 @@
 
 
 - (void) addChildViewControllerDeprecated:(UIViewController *)childController {
+    // iOS 5.0 code
+    [super addChildViewController:childController];
+    // iOS 4.0 code
     NSMutableArray *controllers = [self.viewControllers mutableCopy];
     [controllers addObject:childController];
     [self setViewControllers:controllers animated:NO];
@@ -32,6 +35,10 @@
 - (void)hideTabBar
 {
     self.tabBar.hidden = YES;
+    CGRect frame = self.tabBar.frame;
+    UIView *newTabBar = [[[UIView alloc] initWithFrame:CGRectMake(0,frame.origin.y, self.view.frame.size.width, self.view.frame.size.height - frame.size.height)] autorelease];
+    newTabBar.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.1];
+    [self.tabBar.superview addSubview:newTabBar];
 }
 
 - (void)hideNewTabBar 
@@ -82,11 +89,11 @@
 }
 
 -(void) addButtonWithText:(NSString*)text {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:text forState:UIControlStateNormal];
     [self addButton:button asTab:[self.buttons count]];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [button setBackgroundImage:[UIImage imageNamed:@"button-normal-red.png"] forState:UIControlStateSelected];
+    [button setBackgroundImage:[UIImage imageNamed:@"button-normal-blue.png"] forState:UIControlStateSelected];
     [button setBackgroundImage:[UIImage imageNamed:@"button-normal.png"] forState:UIControlStateNormal];
 }
 

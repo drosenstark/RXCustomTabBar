@@ -39,6 +39,8 @@
     [self makeViewController:[UIColor greenColor]];
     [self makeViewController:[UIColor redColor]];
     [self makeViewController:[UIColor purpleColor]];
+    [self makeViewController:[UIColor orangeColor]];
+    [self makeViewController:[UIColor yellowColor]];
     
 //    self.useRealButtonWidth = YES;
 
@@ -50,11 +52,10 @@
     [self addButtonWithImage:@"NavBar_04.png" selectedImage:@"NavBar_04_s.png"];
      */
     
-    [self addButtonWithText:@"what?"];
-    [self addButtonWithText:@"what?"];
-    [self addButtonWithText:@"what?"];
-    [self addButtonWithText:@"what?"];
-
+    for (int i=0; i<self.viewControllers.count; i++) {
+        NSString *label = [NSString stringWithFormat:@"Thing %d", i+1];
+        [self addButtonWithText:label];
+    }
     [self redoButtonSetup];
 
 }
