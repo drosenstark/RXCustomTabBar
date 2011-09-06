@@ -15,11 +15,26 @@
 @synthesize window = _window;
 @synthesize viewController = _viewController;
 
++ (id) loadFromNib:(NSString *)name classToLoad:(Class)classToLoad bundle:(NSBundle*)bundle {
+    if (!bundle)
+        bundle = [NSBundle mainBundle];
+	NSObject *owner = [[ViewController alloc] init];
+	NSArray *loadedData = [bundle loadNibNamed:name owner:owner options:nil];
+	id retVal;
+	for (id object in loadedData) {
+		if ([object isKindOfClass:classToLoad])
+			retVal = (UIView *)object;
+	}   
+	return retVal;
+}
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil]; 
+    self.viewController = [self.class loadFromNib:@"ViewController" classToLoad:[ViewController class] bundle:nil];
+    //self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil]; 
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;

@@ -8,6 +8,10 @@
 
 @synthesize buttons, buttonWidth, buttonHeight, useRealButtonWidth;
 
+
+static int DEFAULT_WIDTH = 120;
+static int DEFAULT_HEIGHT = 50;
+
 -(void)viewDidLoad {
 	[self hideTabBar];
 
@@ -23,7 +27,17 @@
     [self setViewControllers:controllers animated:NO];
 }
 
+-(int)buttonWidth {
+    if (buttonWidth == 0)
+        buttonWidth = DEFAULT_WIDTH;
+    return buttonWidth;
+}
 
+-(int)buttonHeight {
+    if (buttonHeight == 0)
+        buttonHeight = DEFAULT_HEIGHT;
+    return buttonHeight;
+}
 
 -(NSMutableArray *)buttons {
     if (!buttons)

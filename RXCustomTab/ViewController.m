@@ -28,34 +28,40 @@
     
 }
 
+- (void) addTextButtonsFromControllersTags {
+    for (int i=0; i<self.viewControllers.count; i++) {
+        UITabBarItem *item = [[[self tabBar] items] objectAtIndex:i];
+        NSString *label = [NSString stringWithFormat:@"%@", item.title];
+        [self addButtonWithText:label];
+    }
+
+}
 -(void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"how many %d %@", self.buttons.count, self.test);
     
-    self.buttonWidth = 80;
+    self.buttonWidth = 120;
     self.buttonHeight = 50;
     
+    /*
     [self makeViewController:[UIColor blueColor]];
     [self makeViewController:[UIColor greenColor]];
     [self makeViewController:[UIColor redColor]];
     [self makeViewController:[UIColor purpleColor]];
     [self makeViewController:[UIColor orangeColor]];
     [self makeViewController:[UIColor yellowColor]];
+    */
     
 //    self.useRealButtonWidth = YES;
 
 
-    [self addButtonWithImage:@"NavBar_01.png" selectedImage:@"NavBar_01_s.png"];
-    [self addButtonWithImage:@"NavBar_02.png" selectedImage:@"NavBar_02_s.png"];
-    [self addButtonWithImage:@"NavBar_03.png" selectedImage:@"NavBar_03_s.png"];
-    [self addButtonWithImage:@"NavBar_04.png" selectedImage:@"NavBar_04_s.png"];
+//    [self addButtonWithImage:@"NavBar_01.png" selectedImage:@"NavBar_01_s.png"];
+//    [self addButtonWithImage:@"NavBar_02.png" selectedImage:@"NavBar_02_s.png"];
+//    [self addButtonWithImage:@"NavBar_03.png" selectedImage:@"NavBar_03_s.png"];
+//    [self addButtonWithImage:@"NavBar_04.png" selectedImage:@"NavBar_04_s.png"];
 
-    /*
-    for (int i=0; i<self.viewControllers.count; i++) {
-        NSString *label = [NSString stringWithFormat:@"Thing %d", i+1];
-        [self addButtonWithText:label];
-    }
-     */
+    
+    [self addTextButtonsFromControllersTags];
     [self redoButtonSetup];
 
 }
