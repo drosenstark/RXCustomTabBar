@@ -13,12 +13,22 @@
 
 }
 
+
+- (void) addChildViewControllerDeprecated:(UIViewController *)childController {
+    NSMutableArray *controllers = [self.viewControllers mutableCopy];
+    [controllers addObject:childController];
+    [self setViewControllers:controllers animated:NO];
+}
+
+
+
 -(NSMutableArray *)buttons {
     if (!buttons)
         self.buttons = [NSMutableArray array];
     return buttons;
 
 }
+
 - (void)hideTabBar
 {
     self.tabBar.hidden = YES;
@@ -62,10 +72,22 @@
 -(void) addButton:(UIButton*)button asTab:(int)tabId {
 	[button setTag:tabId]; 
 	[button setSelected:true]; 
-    [self.buttons addObject:button];
-    [self.view addSubview:button];
-	[button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    if (![self.buttons containsObject:button])
+        [self.buttons addObject:button];
+    if (button.superview != self.view) {
+        [self.view addSubview:button];
+        [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    }
 
+}
+
+-(void) addButtonWithText:(NSString*)text {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button setTitle:text forState:UIControlStateNormal];
+    [self addButton:button asTab:[self.buttons count]];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageNamed:@"button-normal-red.png"] forState:UIControlStateSelected];
+    [button setBackgroundImage:[UIImage imageNamed:@"button-normal.png"] forState:UIControlStateNormal];
 }
 
 -(void) addButtonWithImage:(NSString*)normalImage selectedImage:(NSString*)selectedImage {
@@ -92,9 +114,17 @@
         button.selected = (tabID == i);
     }
 	self.selectedIndex = tabID;
-	
-	
 }
+
+- (void) redoButtonSetup {
+    NSLog(@"buttons count %d", [self.buttons count]);
+    for (int i=0; i<[self.buttons count]; i++) {
+        UIButton *button = [self.buttons objectAtIndex:i];
+        [self addButton:button asTab:i];
+    }
+
+}
+
 
 -(void)dealloc {
     self.buttons = nil;

@@ -11,19 +11,21 @@
 @interface RXCustomTabBar : UITabBarController {
 }
 
-@property (nonatomic, retain) NSMutableArray *buttons;
+@property (nonatomic, retain) IBOutletCollection(UIButton) NSMutableArray *buttons;
 @property (nonatomic, assign) int buttonWidth;
 @property (nonatomic, assign) int buttonHeight;
 @property (nonatomic, assign) BOOL useRealButtonWidth;
 
+- (void) addChildViewControllerDeprecated:(UIViewController *)childController;
+- (void) hideTabBar;
+- (void) selectTab:(int)tabID;
 
--(void) hideTabBar;
--(void) selectTab:(int)tabID;
-
--(void) hideNewTabBar;
--(void) showNewTabBar;
--(void) addButton:(UIButton*)button asTab:(int)tabId;
--(void) addButtonWithImage:(NSString*)normalImage selectedImage:(NSString*)selectedImage;
+- (void) hideNewTabBar;
+- (void) showNewTabBar;
+- (void) addButton:(UIButton*)button asTab:(int)tabId;
+- (void) addButtonWithImage:(NSString*)normalImage selectedImage:(NSString*)selectedImage;
+- (void) addButtonWithText:(NSString*)text;
 - (void) layoutButtons;
+- (void) redoButtonSetup;
 
 @end

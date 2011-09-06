@@ -10,5 +10,6 @@
 #import "RXCustomTabBar.h"
 
 @interface ViewController : RXCustomTabBar
+@property (nonatomic, retain) IBOutlet UILabel *test;
 
 @end

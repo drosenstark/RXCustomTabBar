@@ -25,6 +25,8 @@
 		5C9CFC1714158B400069B5C2 /* NavBar_03_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C9CFC0D14158B400069B5C2 /* NavBar_03_s.png */; };
 		5C9CFC1814158B400069B5C2 /* NavBar_04.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C9CFC0E14158B400069B5C2 /* NavBar_04.png */; };
 		5C9CFC1914158B400069B5C2 /* NavBar_04_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C9CFC0F14158B400069B5C2 /* NavBar_04_s.png */; };
+		5CA243641415B4FE008FDE6C /* button-normal-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CA243621415B4FE008FDE6C /* button-normal-red.png */; };
+		5CA243651415B4FE008FDE6C /* button-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CA243631415B4FE008FDE6C /* button-normal.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		5C9CFC0D14158B400069B5C2 /* NavBar_03_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavBar_03_s.png; sourceTree = "<group>"; };
 		5C9CFC0E14158B400069B5C2 /* NavBar_04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavBar_04.png; sourceTree = "<group>"; };
 		5C9CFC0F14158B400069B5C2 /* NavBar_04_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavBar_04_s.png; sourceTree = "<group>"; };
+		5CA243621415B4FE008FDE6C /* button-normal-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-normal-red.png"; sourceTree = "<group>"; };
+		5CA243631415B4FE008FDE6C /* button-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-normal.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,8 @@
 		5C9CFC0514158B400069B5C2 /* graphics */ = {
 			isa = PBXGroup;
 			children = (
+				5CA243621415B4FE008FDE6C /* button-normal-red.png */,
+				5CA243631415B4FE008FDE6C /* button-normal.png */,
 				5C9CFC0614158B400069B5C2 /* Nav_01.png */,
 				5C9CFC0714158B400069B5C2 /* Nav_01_s.png */,
 				5C9CFC0814158B400069B5C2 /* NavBar_01.png */,
@@ -207,6 +213,8 @@
 				5C9CFC1714158B400069B5C2 /* NavBar_03_s.png in Resources */,
 				5C9CFC1814158B400069B5C2 /* NavBar_04.png in Resources */,
 				5C9CFC1914158B400069B5C2 /* NavBar_04_s.png in Resources */,
+				5CA243641415B4FE008FDE6C /* button-normal-red.png in Resources */,
+				5CA243651415B4FE008FDE6C /* button-normal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +307,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RXCustomTab/RXCustomTab-Prefix.pch";
 				INFOPLIST_FILE = "RXCustomTab/RXCustomTab-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -310,6 +319,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RXCustomTab/RXCustomTab-Prefix.pch";
 				INFOPLIST_FILE = "RXCustomTab/RXCustomTab-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
