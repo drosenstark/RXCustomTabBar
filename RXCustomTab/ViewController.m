@@ -45,17 +45,17 @@
 //    self.useRealButtonWidth = YES;
 
 
-    /*
     [self addButtonWithImage:@"NavBar_01.png" selectedImage:@"NavBar_01_s.png"];
     [self addButtonWithImage:@"NavBar_02.png" selectedImage:@"NavBar_02_s.png"];
     [self addButtonWithImage:@"NavBar_03.png" selectedImage:@"NavBar_03_s.png"];
     [self addButtonWithImage:@"NavBar_04.png" selectedImage:@"NavBar_04_s.png"];
-     */
-    
+
+    /*
     for (int i=0; i<self.viewControllers.count; i++) {
         NSString *label = [NSString stringWithFormat:@"Thing %d", i+1];
         [self addButtonWithText:label];
     }
+     */
     [self redoButtonSetup];
 
 }

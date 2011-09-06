@@ -14,7 +14,7 @@
 		5C361C8514158AD300E5A131 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C361C8414158AD300E5A131 /* AppDelegate.m */; };
 		5C361C8814158AD300E5A131 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C361C8714158AD300E5A131 /* ViewController.m */; };
 		5C361C8B14158AD300E5A131 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C361C8914158AD300E5A131 /* ViewController.xib */; };
-		5C9CFC0314158B370069B5C2 /* RXCustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9CFC0114158B370069B5C2 /* RXCustomTabBar.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		5C9CFC0314158B370069B5C2 /* RXCustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9CFC0114158B370069B5C2 /* RXCustomTabBar.m */; };
 		5C9CFC1014158B400069B5C2 /* Nav_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C9CFC0614158B400069B5C2 /* Nav_01.png */; };
 		5C9CFC1114158B400069B5C2 /* Nav_01_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C9CFC0714158B400069B5C2 /* Nav_01_s.png */; };
 		5C9CFC1214158B400069B5C2 /* NavBar_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C9CFC0814158B400069B5C2 /* NavBar_01.png */; };

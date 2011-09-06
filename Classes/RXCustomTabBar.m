@@ -36,7 +36,7 @@
 {
     self.tabBar.hidden = YES;
     CGRect frame = self.tabBar.frame;
-    UIView *newTabBar = [[[UIView alloc] initWithFrame:CGRectMake(0,frame.origin.y, self.view.frame.size.width, self.view.frame.size.height - frame.size.height)] autorelease];
+    UIView *newTabBar = [[UIView alloc] initWithFrame:CGRectMake(0,frame.origin.y, self.view.frame.size.width, self.view.frame.size.height - frame.size.height)];
     newTabBar.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.1];
     [self.tabBar.superview addSubview:newTabBar];
 }
