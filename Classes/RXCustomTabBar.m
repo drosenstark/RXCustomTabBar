@@ -17,8 +17,6 @@
 
 }
 
-
-
 -(NSMutableArray *)buttons {
     if (!buttons)
         self.buttons = [NSMutableArray array];
@@ -27,14 +25,7 @@
 }
 - (void)hideTabBar
 {
-	for(UIView *view in self.view.subviews)
-	{
-		if([view isKindOfClass:[UITabBar class]])
-		{
-			view.hidden = YES;
-			break;
-		}
-	}
+    self.tabBar.hidden = YES;
 }
 
 - (void)hideNewTabBar 
