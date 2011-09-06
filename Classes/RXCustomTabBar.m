@@ -14,7 +14,17 @@ static int DEFAULT_HEIGHT = 50;
 
 -(void)viewDidLoad {
 	[self hideTabBar];
+    [self addTextButtonsFromControllersTags];
+    [self redoButtonSetup];
+    
 
+}
+
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self layoutButtons];
+    [self selectTab:0];
 }
 
 
@@ -144,6 +154,19 @@ static int DEFAULT_HEIGHT = 50;
         [self addButton:button asTab:i];
     }
 
+}
+
+
+- (void) addTextButtonsFromControllersTags {
+    if (self.buttons.count > 0)
+        return;
+    for (int i=0; i<self.viewControllers.count; i++) {
+        UITabBarItem *item = [[[self tabBar] items] objectAtIndex:i];
+        if (!item.title)
+            item.title = [NSString stringWithFormat:@"C %d", i+1];
+        [self addButtonWithText:item.title];
+    }
+    
 }
 
 

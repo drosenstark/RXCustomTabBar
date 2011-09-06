@@ -27,5 +27,6 @@
 - (void) addButtonWithText:(NSString*)text;
 - (void) layoutButtons;
 - (void) redoButtonSetup;
+- (void) addTextButtonsFromControllersTags;
 
 @end
