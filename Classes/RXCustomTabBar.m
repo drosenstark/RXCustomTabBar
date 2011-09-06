@@ -14,12 +14,17 @@
 
 -(void)viewDidLoad {
 	[self hideTabBar];
-    if (!self.buttons)
-        self.buttons = [NSMutableArray array];
 
 }
 
 
+
+-(NSMutableArray *)buttons {
+    if (!buttons)
+        self.buttons = [NSMutableArray array];
+    return buttons;
+
+}
 - (void)hideTabBar
 {
 	for(UIView *view in self.view.subviews)
@@ -55,13 +60,18 @@
 }
 
 - (void) layoutButtons {
+    int totalWidthOfButtons = [self.buttons count]*[self buttonWidth];
+    float startingX = self.view.frame.size.width/2 - totalWidthOfButtons/2;
+    
+    
     for (int i=0; i<[self.buttons count]; i++) {
         UIButton *button = [self.buttons objectAtIndex:i];
-        button.frame = CGRectMake(i*[self buttonWidth], self.view.frame.size.height - [self buttonHeight], [self buttonWidth], [self buttonHeight]); 
+        button.frame = CGRectMake(startingX + i*[self buttonWidth], self.view.frame.size.height - [self buttonHeight], [self buttonWidth], [self buttonHeight]); 
     }
 }
 
--(void) addCustomElement:(NSString*)normalImage selectedImage:(NSString*)selectedImage which:(int)which {
+-(void) addCustomElement:(NSString*)normalImage selectedImage:(NSString*)selectedImage {
+    int which = [self.buttons count];
 	UIImage *btnImage = [UIImage imageNamed:normalImage];
 	UIImage *btnImageSelected = [UIImage imageNamed:selectedImage];
     
@@ -70,7 +80,6 @@
     [btn1 setBackgroundImage:btnImageSelected forState:UIControlStateSelected]; 
 	[btn1 setTag:which]; 
 	[btn1 setSelected:true]; 
-    NSLog(@"made it %d", which);
     [self.buttons addObject:btn1];
     [self.view addSubview:btn1];
 	[btn1 addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];

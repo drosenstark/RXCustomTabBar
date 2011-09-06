@@ -27,11 +27,10 @@
     [self makeViewController:[UIColor redColor]];
     [self makeViewController:[UIColor purpleColor]];
 
-    int i = 0;
-    [self addCustomElement:@"NavBar_01.png" selectedImage:@"NavBar_01_s.png" which:i++];
-    [self addCustomElement:@"NavBar_02.png" selectedImage:@"NavBar_02_s.png" which:i++];
-    [self addCustomElement:@"NavBar_03.png" selectedImage:@"NavBar_03_s.png" which:i++];
-    [self addCustomElement:@"NavBar_04.png" selectedImage:@"NavBar_04_s.png" which:i++];
+    [self addCustomElement:@"NavBar_01.png" selectedImage:@"NavBar_01_s.png"];
+    [self addCustomElement:@"NavBar_02.png" selectedImage:@"NavBar_02_s.png"];
+    [self addCustomElement:@"NavBar_03.png" selectedImage:@"NavBar_03_s.png"];
+    [self addCustomElement:@"NavBar_04.png" selectedImage:@"NavBar_04_s.png"];
 
 
 }

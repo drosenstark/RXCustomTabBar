@@ -18,7 +18,7 @@
 
 -(void) hideNewTabBar;
 -(void) showNewTabBar;
--(void) addCustomElement:(NSString*)normalImage selectedImage:(NSString*)selectedImage which:(int)which;
+-(void) addCustomElement:(NSString*)normalImage selectedImage:(NSString*)selectedImage;
 - (void) layoutButtons;
 
 @end
