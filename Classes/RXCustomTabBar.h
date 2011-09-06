@@ -12,6 +12,9 @@
 }
 
 @property (nonatomic, retain) NSMutableArray *buttons;
+@property (nonatomic, assign) int buttonWidth;
+@property (nonatomic, assign) int buttonHeight;
+
 
 -(void) hideTabBar;
 -(void) selectTab:(int)tabID;

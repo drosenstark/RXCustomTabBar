@@ -1,16 +1,12 @@
 //
-//  RumexCustomTabBar.m
-//  
-//
-//  Created by Oliver Farago on 19/06/2010.
-//  Copyright 2010 Rumex IT All rights reserved.
+//  Was RumexCustomTabBar.m
 //
 
 #import "RXCustomTabBar.h"
 
 @implementation RXCustomTabBar
 
-@synthesize buttons;
+@synthesize buttons, buttonWidth, buttonHeight;
 
 -(void)viewDidLoad {
 	[self hideTabBar];
@@ -42,13 +38,6 @@
     }
 }
 
-- (int) buttonHeight {
-    return 50;
-}
-
--(int) buttonWidth {
-    return 80;
-}
 
 - (void) layoutButtons {
     int totalWidthOfButtons = [self.buttons count]*[self buttonWidth];
@@ -63,17 +52,17 @@
 
 -(void) addCustomElement:(NSString*)normalImage selectedImage:(NSString*)selectedImage {
     int which = [self.buttons count];
-	UIImage *btnImage = [UIImage imageNamed:normalImage];
-	UIImage *btnImageSelected = [UIImage imageNamed:selectedImage];
+	UIImage *buttonImage = [UIImage imageNamed:normalImage];
+	UIImage *buttonImageSelected = [UIImage imageNamed:selectedImage];
     
-    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
-	[btn1 setBackgroundImage:btnImage forState:UIControlStateNormal]; 
-    [btn1 setBackgroundImage:btnImageSelected forState:UIControlStateSelected]; 
-	[btn1 setTag:which]; 
-	[btn1 setSelected:true]; 
-    [self.buttons addObject:btn1];
-    [self.view addSubview:btn1];
-	[btn1 addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+	[button setBackgroundImage:buttonImage forState:UIControlStateNormal]; 
+    [button setBackgroundImage:buttonImageSelected forState:UIControlStateSelected]; 
+	[button setTag:which]; 
+	[button setSelected:true]; 
+    [self.buttons addObject:button];
+    [self.view addSubview:button];
+	[button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 

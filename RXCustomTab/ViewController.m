@@ -22,6 +22,9 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
+    self.buttonWidth = 80;
+    self.buttonHeight = 50;
+    
     [self makeViewController:[UIColor blueColor]];
     [self makeViewController:[UIColor greenColor]];
     [self makeViewController:[UIColor redColor]];
